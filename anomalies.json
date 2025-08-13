@@ -1,0 +1,3815 @@
+{
+  "start": "2025-08-09T18:02:57.773671+00:00",
+  "end": "2025-08-10T18:02:57.773671+00:00",
+  "generated_at": "2025-08-10T18:02:58.244077+00:00",
+  "anomalies": [
+    {
+      "metric": "cpu_utilization",
+      "device": "router1",
+      "time": "2025-08-09T18:31:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 17.635215366815086,
+      "baseline_mean": 35.339285766674124,
+      "baseline_std": 5.243583872314087,
+      "zscore": -3.3763301648202524,
+      "context": {
+        "hour": 18
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router1",
+      "time": "2025-08-09T18:54:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 6158844.21",
+      "value": 44318003.17392134,
+      "baseline_mean": 6158844.214080704,
+      "baseline_std": 2017474.2199337038,
+      "zscore": 18.914322960267903,
+      "context": {
+        "hour": 18
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router1",
+      "time": "2025-08-09T19:42:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 6158844.21",
+      "value": 35603191.4487889,
+      "baseline_mean": 6158844.214080704,
+      "baseline_std": 2017474.2199337038,
+      "zscore": 14.594658481274555,
+      "context": {
+        "hour": 19
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-09T21:34:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 90.44665096986476,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 9.507033979986119,
+      "context": {
+        "hour": 21
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-09T21:35:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 85.297243339664,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 8.783401396660283,
+      "context": {
+        "hour": 21
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-09T21:36:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 84.26877509299557,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 8.638873484393166,
+      "context": {
+        "hour": 21
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-09T21:37:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 81.32718182380108,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 8.225499191785824,
+      "context": {
+        "hour": 21
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-09T21:38:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 84.33026778128571,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 8.647514888624222,
+      "context": {
+        "hour": 21
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-09T21:39:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 88.86097787806789,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 9.284203550132869,
+      "context": {
+        "hour": 21
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-09T21:40:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 80.8490639598441,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 8.158310557699005,
+      "context": {
+        "hour": 21
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router1",
+      "time": "2025-08-09T22:51:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 12.484827185985932,
+      "baseline_mean": 35.339285766674124,
+      "baseline_std": 5.243583872314087,
+      "zscore": -4.358556883462629,
+      "context": {
+        "hour": 22
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-09T22:59:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 262553.6042787928,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": -3.5143376288958983,
+      "context": {
+        "hour": 22
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router3",
+      "time": "2025-08-09T23:00:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.33; loss >=2%",
+      "value": 21.824410416137336,
+      "baseline_mean": 0.32535812232731715,
+      "baseline_std": 1.5090783583981346,
+      "zscore": 14.246478437760489,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router3",
+      "time": "2025-08-09T23:01:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.33; loss >=2%",
+      "value": 21.824410416137336,
+      "baseline_mean": 0.32535812232731715,
+      "baseline_std": 1.5090783583981346,
+      "zscore": 14.246478437760489,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router3",
+      "time": "2025-08-09T23:02:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.33; loss >=2%",
+      "value": 21.824410416137336,
+      "baseline_mean": 0.32535812232731715,
+      "baseline_std": 1.5090783583981346,
+      "zscore": 14.246478437760489,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router3",
+      "time": "2025-08-09T23:03:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.33; loss >=2%",
+      "value": 21.824410416137336,
+      "baseline_mean": 0.32535812232731715,
+      "baseline_std": 1.5090783583981346,
+      "zscore": 14.246478437760489,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router3",
+      "time": "2025-08-09T23:04:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.33; loss >=2%",
+      "value": 21.824410416137336,
+      "baseline_mean": 0.32535812232731715,
+      "baseline_std": 1.5090783583981346,
+      "zscore": 14.246478437760489,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-09T23:38:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 53.54731418265207,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 4.541335485503015,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-09T23:39:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 55.97601584255343,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 4.899266167440464,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-09T23:40:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 59.48923496923531,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 5.4170279570297275,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-09T23:41:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 57.243751853442994,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 5.08609916648111,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-09T23:42:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 59.58697207542901,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 5.431431994235319,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-09T23:43:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 61.10983879186553,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 5.6558649623982795,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-09T23:44:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 56.140831965433954,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 4.9235559961299655,
+      "context": {
+        "hour": 23
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:03:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2875.9308017470285,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.464273391681594,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:04:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2774.726552222652,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.192259021969491,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:05:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2849.4234147803068,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.393027468784543,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:06:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2824.81594930633,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.326888109591884,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:07:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2850.3007185716488,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.395385465004756,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:08:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2727.1845811409667,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.064476845238455,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:09:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2806.9917092359815,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.278980541963855,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:10:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2707.5694083772796,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.011755651403376,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:11:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2924.240172608463,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.594118167249998,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:12:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2922.1348910747015,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.588459641722028,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:13:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2801.7963825190423,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.265016666642431,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:14:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2941.58563671591,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.640738892256358,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:15:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2765.493785560525,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.167443411794025,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:16:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2943.922422827225,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.647019650270065,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:17:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2792.8785532209763,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.2410475376076935,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:18:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2705.4293458499237,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.006003642349813,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:18:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 58.10693213830958,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 4.962419149950399,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:19:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2799.3017224691152,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.258311578819381,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:19:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 66.51283438022595,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 6.143678275529711,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:19:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 62.8493466167295,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.184577910758942,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:20:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 58.06838649657873,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 4.95700243325117,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:20:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2947.931907491042,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.657796247585138,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:20:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 61.83631451223447,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.060980334578279,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:21:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2926.1288881819632,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.599194611951733,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:21:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 60.648888896836894,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.9161054314959816,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:21:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 58.808646615803845,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 5.061029222520342,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:22:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 63.33706666694386,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 5.697396069994642,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:22:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 62.3286416100448,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.1210479629460384,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:22:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2743.785685571503,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.109096898046706,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:23:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2830.986496966174,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.343473160519679,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:23:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 64.31477867921683,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 5.8347913433927605,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:23:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 63.24251654343964,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.2325476145352368,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:24:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 63.230431155483686,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.231073105828226,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:24:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2781.438122427008,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.210298220397385,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:24:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 65.7440914423002,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 6.035648871366378,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:25:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2766.7971275657555,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.170946503371091,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:25:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 64.39708373759048,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.373413541786265,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T00:25:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 47.41068446156514,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 3.4593038609567053,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:26:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 60.91057085116537,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.9480326084745836,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T00:26:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98",
+      "value": 2832.4955627657787,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 4.347529191607926,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:27:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 63.7895726961539,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.2992926014020694,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:28:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 61.39616286325962,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.0072785054616866,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:29:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 62.28035419285504,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.115156532952659,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:30:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 61.59710770517284,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.0317952954985246,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:31:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 63.181554437657795,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.225109776701596,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:32:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 61.01851113934791,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.9612021397583472,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:33:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 62.22113250191411,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.1079310388887094,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router1",
+      "time": "2025-08-10T00:33:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 863738.247111574,
+      "baseline_mean": 4888770.68834793,
+      "baseline_std": 832257.3199459404,
+      "zscore": -4.836283616583636,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:34:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 65.2264915340314,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.474607564019689,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:35:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 62.86468107267629,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.186448830326706,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:36:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 60.56916576610368,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.906378606768081,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:37:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 59.30472504394966,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.7521072783581415,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:38:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 64.59548831875371,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.3976204008049518,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:39:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night CPU spike",
+      "value": 63.53189129311636,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.2678535219287212,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:40:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 57.08506450824747,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.481291910375883,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:41:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 60.06773304337752,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.84520002331389,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:42:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 60.71875111738324,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.92462915062375,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T00:43:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night CPU spike",
+      "value": 59.604476815792935,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 2.788679260915551,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T00:46:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 76.97434840305013,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 11.807907193174957,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T00:47:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 57.480249825717074,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 7.60039072938803,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T00:48:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 70.87770667742903,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 10.492036119034196,
+      "context": {
+        "hour": 0
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router2",
+      "time": "2025-08-10T01:03:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 6105319.81; night traffic spike",
+      "value": 31029550.260291398,
+      "baseline_mean": 6105319.814128901,
+      "baseline_std": 1335607.006820709,
+      "zscore": 18.661350471268012,
+      "context": {
+        "hour": 1
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T01:04:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 149.03559822735107,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": -4.606817605822698,
+      "context": {
+        "hour": 1
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router3",
+      "time": "2025-08-10T01:16:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 383031.907040784,
+      "baseline_mean": 6082111.968754029,
+      "baseline_std": 970809.5755785828,
+      "zscore": -5.870440717806794,
+      "context": {
+        "hour": 1
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router1",
+      "time": "2025-08-10T01:20:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 6158844.21; night traffic spike",
+      "value": 35113807.082100496,
+      "baseline_mean": 6158844.214080704,
+      "baseline_std": 2017474.2199337038,
+      "zscore": 14.352085683142597,
+      "context": {
+        "hour": 1
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:41:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2404.318544635614,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.576911529056568,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:42:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2318.6401621973177,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.190030831512262,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:43:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2482.8810766604,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.931660607244236,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:44:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2426.4464931662287,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.676830270740493,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:45:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2460.3679611114826,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.830002644061592,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:46:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2436.3756997628093,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.721665598682324,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:47:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2456.82134136399,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.813987884179513,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:48:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2506.717566763423,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 6.039294267633504,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:49:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2416.3526555850463,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.631251551661393,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:50:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2530.3475899179034,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 6.145995626609058,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:51:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2468.8305425364033,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.86821542669736,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T02:52:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 49.42823267089242,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 5.8624804273947575,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:52:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2529.336047516029,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 6.141428007346233,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T02:53:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 47.26026623482007,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 5.3945565356320335,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:53:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2483.7680280748405,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.935665635959078,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T02:54:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 43.54886858990174,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 4.593505559476034,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:54:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2526.0928806948486,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 6.126783489017069,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T02:55:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 46.45461417106761,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 5.220668304336029,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:55:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2473.413676189583,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.888910564656552,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T02:56:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 44.63716065934412,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 4.828397508002028,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:56:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2346.620959033209,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.316378107098507,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:57:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2249.952846644138,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 4.879873288881273,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:58:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2472.6845998477784,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.885618420761521,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T02:59:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1169.26",
+      "value": 2476.3851566038084,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": 5.902328283136738,
+      "context": {
+        "hour": 2
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T03:13:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 62.57379809754351,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 8.699758731852247,
+      "context": {
+        "hour": 3
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T03:14:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 59.70922594493995,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 8.081482670203545,
+      "context": {
+        "hour": 3
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T03:15:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 59.739961301249984,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 8.08811644796874,
+      "context": {
+        "hour": 3
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T03:16:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 63.37359779711976,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 8.872383815815441,
+      "context": {
+        "hour": 3
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router3",
+      "time": "2025-08-10T03:17:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.27",
+      "value": 61.09766142340301,
+      "baseline_mean": 22.266420627390822,
+      "baseline_std": 4.633160379790318,
+      "zscore": 8.381156189928735,
+      "context": {
+        "hour": 3
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T03:19:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 5.907304544933289,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": -3.7627817549641747,
+      "context": {
+        "hour": 3
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router2",
+      "time": "2025-08-10T03:58:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 166208.04955771696,
+      "baseline_mean": 4894046.857812068,
+      "baseline_std": 818966.3659288599,
+      "zscore": -5.772934036054221,
+      "context": {
+        "hour": 3
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:33:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2423.5494374995815,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.544457002932915,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:34:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2330.9812190669663,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.27910284917678,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T04:34:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night traffic spike",
+      "value": 9546183.58192997,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 3.2245235774045398,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:35:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2394.7277382560414,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.4618373118328782,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T04:35:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night traffic spike",
+      "value": 8932812.966644803,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 2.7792861590261277,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T04:36:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night traffic spike",
+      "value": 8631808.805867052,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 2.5607913173657737,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:36:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2362.562248355695,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.369632379112139,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:37:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2439.053913321777,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.588901814887745,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T04:37:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night traffic spike",
+      "value": 9078804.175546646,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 2.885259199366803,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T04:38:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night traffic spike",
+      "value": 8938694.367950376,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 2.783555388540038,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:38:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2392.4847999899584,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.455407751065681,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T04:39:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike; night traffic spike",
+      "value": 9352403.157952538,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 3.083860993391,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:39:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2242.779989314119,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.026267015479121,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T04:40:37.773639+00:00",
+      "severity": "minor",
+      "reason": "night traffic spike",
+      "value": 8554618.695351556,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 2.504760062079302,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:40:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2440.7640874597046,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.593804164947293,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:41:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2499.331741923844,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.76169300034847,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:42:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2414.303136547619,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.5179517465282175,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:43:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2414.950455178242,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.5198073368198743,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router2",
+      "time": "2025-08-10T04:44:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 6105319.81; night traffic spike",
+      "value": 21042542.25472905,
+      "baseline_mean": 6105319.814128901,
+      "baseline_std": 1335607.006820709,
+      "zscore": 11.183845520664683,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:44:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2379.415838527021,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.4179445345515407,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:45:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2444.225550423609,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.603726723586722,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:46:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2473.757355144901,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.688381988464854,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:47:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2462.2121858024107,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.6552868431469405,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:48:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2291.438698675235,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.1657510723618167,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:49:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2430.77036137371,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.565156355004292,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:50:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2299.8555263259427,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.189878577637189,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:51:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 46.244818507223606,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 3.2954678136016984,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:51:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2401.1513542477433,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.480251117503917,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:52:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2527.450321839848,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.8422971440251357,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:52:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 54.27408325430355,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 4.423799071950729,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:53:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 52.81160120868368,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 4.218280352761995,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:53:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2571.6732883532595,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.969065791563648,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:54:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2443.1577101273842,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.6006656745252914,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:54:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 46.80337907154756,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 3.3739608468071354,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:55:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2549.6828562912638,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.90602847066295,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:55:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 49.989438738507914,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 3.8216893532689333,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:56:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 46.50259485728559,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 3.3316924397162917,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T04:56:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2313.876464689761,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 3.230070711583316,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:57:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 46.02652251617077,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 3.2647912575239117,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:58:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 46.820514290643665,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 3.376368813655137,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router1",
+      "time": "2025-08-10T04:59:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.79",
+      "value": 56.86520915729977,
+      "baseline_mean": 22.79409572958368,
+      "baseline_std": 7.116052743968405,
+      "zscore": 4.787923116027338,
+      "context": {
+        "hour": 4
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:04:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:05:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:06:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:07:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:08:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:09:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T05:09:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 5.408623805762203,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": -3.82362457561718,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:10:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:11:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:12:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:13:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router1",
+      "time": "2025-08-10T05:14:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 16.305661322275057,
+      "baseline_mean": 0.3921544941621976,
+      "baseline_std": 1.66152818839073,
+      "zscore": 9.577632771626858,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router1",
+      "time": "2025-08-10T05:26:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 148.85306112354974,
+      "baseline_mean": 1169.2588431721363,
+      "baseline_std": 221.4594395174868,
+      "zscore": -4.607641852033196,
+      "context": {
+        "hour": 5
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router2",
+      "time": "2025-08-10T06:26:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 930156.8061137187,
+      "baseline_mean": 6105319.814128901,
+      "baseline_std": 1335607.006820709,
+      "zscore": -3.8747647935257445,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:44:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2357.7297505023107,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.0714649572439705,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:45:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2616.627011861228,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.7673228456202192,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:47:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2341.7090795258628,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.0284049796392374,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:48:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2390.7829254416333,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.160304493037753,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:49:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2469.8881098103134,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.3729215221460356,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:50:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2413.828044581355,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.222244614991049,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:51:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2412.0011921338055,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.217334444524764,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:52:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2380.0156182486076,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.1313643813984484,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:53:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2520.1951627952503,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.5081356201120997,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:54:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2467.099005995445,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.365425035389516,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:55:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2381.995279451224,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.1366852675944727,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:56:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2409.5955931270696,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.210868732850871,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:57:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2342.631086314199,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.030883127509294,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:58:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2390.323561656081,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.1590698260036825,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T06:59:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2346.783624621577,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.0420442209979104,
+      "context": {
+        "hour": 6
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T07:01:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2479.3633198657885,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.398388765895608,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T07:02:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2492.0236780900955,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.432416974976738,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T07:03:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2416.971902775289,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.2306946021122047,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T07:04:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 2388.030395910465,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 3.1529063097692296,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T07:37:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 22.499079581406125,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.498619914297864,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T07:38:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 22.499079581406125,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.498619914297864,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:42:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 73.5963415647327,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 7.496067292019831,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:43:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 65.11860757362813,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 6.24665854049635,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:44:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 82.08853700637344,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 8.747607304429602,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:45:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 71.32072196002926,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 7.160697126803732,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:46:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 79.80947153411604,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 8.41172930338343,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:47:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 66.34408333805573,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 6.427263422232711,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:48:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 67.85273637494177,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 6.649601644837442,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:49:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 62.09891766752218,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 5.80163077723619,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:50:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 68.64126645395922,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 6.765811516791155,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:51:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 58.20666696428027,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 5.228009088131947,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:52:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 70.7327809296912,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 7.074049129891482,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:53:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 64.22713494882599,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 6.115277478016673,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:54:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 70.83413658003461,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 7.088986451195534,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:55:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 71.86490605877448,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 7.240896431963058,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "latency_ms",
+      "device": "router2",
+      "time": "2025-08-10T07:56:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 22.73",
+      "value": 59.381464341846176,
+      "baseline_mean": 22.732551469078462,
+      "baseline_std": 6.785396677242059,
+      "zscore": 5.401145226437041,
+      "context": {
+        "hour": 7
+      }
+    },
+    {
+      "metric": "if_octets_in",
+      "device": "router2",
+      "time": "2025-08-10T08:51:37.773639+00:00",
+      "severity": "major",
+      "reason": "z<=-3 drop",
+      "value": 583207.251414939,
+      "baseline_mean": 6105319.814128901,
+      "baseline_std": 1335607.006820709,
+      "zscore": -4.134533986804134,
+      "context": {
+        "hour": 8
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T09:23:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1187.07",
+      "value": 4863.007532163278,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 10.537357474537599,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router3",
+      "time": "2025-08-10T09:26:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1187.07; connections surge",
+      "value": 8696.514098650561,
+      "baseline_mean": 1187.0733340426175,
+      "baseline_std": 348.8478213824636,
+      "zscore": 21.526408663951138,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:37:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 10811829.617837608,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.143238885190192,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:38:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11460242.911062399,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.61391330865182,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:39:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 10748068.67775284,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.096955682752259,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:40:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11328084.093022335,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.517981013406891,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "connections_active",
+      "device": "router2",
+      "time": "2025-08-10T09:41:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 1214.98; connections surge",
+      "value": 6083.575561040445,
+      "baseline_mean": 1214.9764971823054,
+      "baseline_std": 372.05479119169223,
+      "zscore": 13.085704522884942,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:41:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 10999881.74466047,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.279743375918452,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:42:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11783791.100815276,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.848772555470491,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:43:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11580584.43053379,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.701267586991786,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:44:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11905312.83851382,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.936983538229428,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:45:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11256659.860499175,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.466135130826608,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:46:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11196918.867340885,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.422769953391765,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:47:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11564255.772054965,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.6894148350576,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:48:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11013361.165636644,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.289527904957028,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:49:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11647736.83320032,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.750012606163032,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:50:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11296114.836367473,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.4947749631889975,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:51:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11255750.831196865,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.465475278773534,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:52:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11391691.289161574,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.564152615198016,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:53:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 12284465.752482764,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 5.212205500904801,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:54:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 10574798.591330528,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 3.971181274852057,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:55:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11760107.367413776,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.831580854312222,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:56:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11167484.202356605,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.401403728923478,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:57:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11285248.775004486,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.486887436482247,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:58:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 12173967.591915788,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 5.131996383414667,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T09:59:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 10489592.589451704,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 3.9093313926413873,
+      "context": {
+        "hour": 9
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T10:00:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11975366.01178833,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.98783418747916,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T10:01:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11413495.117501212,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.5799797187448545,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T10:02:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11578212.181010064,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.6995456032068255,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T10:03:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11373067.242060337,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.550633671765655,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "if_octets_out",
+      "device": "router3",
+      "time": "2025-08-10T10:04:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 5103996.27",
+      "value": 11659380.239553701,
+      "baseline_mean": 5103996.270096322,
+      "baseline_std": 1377625.936110916,
+      "zscore": 4.758464397065176,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:14:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 67.25516768863673,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.7221213934947337,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:15:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 67.42896158162233,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.74332556247685,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:16:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 66.9123465378208,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.6802946210594842,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:17:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 67.04734556621284,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.6967655232371786,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:18:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 67.50423078833451,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.75250897479852,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:19:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 66.20684150099899,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.5942176723157018,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:20:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 66.95210145129732,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.685145021086461,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:21:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 68.92638567345185,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.9260226235506606,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:22:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 64.24189138002566,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.3544789007697933,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:23:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 68.60864552917596,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.887255923548226,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:24:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 68.42901756040689,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.8653399532096753,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:25:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 36.75",
+      "value": 69.99682553451888,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 4.056624380087292,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:26:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 68.54319221285245,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.879270124070918,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:27:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 68.61642588308274,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.8882051855513144,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:28:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 68.76951470569084,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.9068831793984535,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:29:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 67.52829333881986,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.7554447878922197,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:30:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 67.93585916461508,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.8051709002028153,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:31:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 65.11127982077724,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.460550863898686,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:32:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 68.16158477670795,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.8327111315664433,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:33:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 66.19686678106939,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.5930006810664517,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:34:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 67.4659315313535,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.747836175870067,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:35:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 36.75",
+      "value": 71.43867903580019,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 4.232541408950663,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "cpu_utilization",
+      "device": "router2",
+      "time": "2025-08-10T10:36:37.773639+00:00",
+      "severity": "major",
+      "reason": "z>=3 spike",
+      "value": 69.26390217164885,
+      "baseline_mean": 36.74786661562549,
+      "baseline_std": 8.196213354655706,
+      "zscore": 3.967202188258464,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T10:59:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 21.855771037294797,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.164069545952378,
+      "context": {
+        "hour": 10
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T11:00:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 21.855771037294797,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.164069545952378,
+      "context": {
+        "hour": 11
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T11:01:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 21.855771037294797,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.164069545952378,
+      "context": {
+        "hour": 11
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T11:02:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 21.855771037294797,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.164069545952378,
+      "context": {
+        "hour": 11
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T11:03:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 21.855771037294797,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.164069545952378,
+      "context": {
+        "hour": 11
+      }
+    },
+    {
+      "metric": "packet_loss",
+      "device": "router2",
+      "time": "2025-08-10T11:04:37.773639+00:00",
+      "severity": "critical",
+      "reason": "z>=4 spike vs mean 0.39; loss >=2%",
+      "value": 21.855771037294797,
+      "baseline_mean": 0.38832695261952344,
+      "baseline_std": 1.922904904552343,
+      "zscore": 11.164069545952378,
+      "context": {
+        "hour": 11
+      }
+    }
+  ]
+}
