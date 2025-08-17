@@ -15,12 +15,12 @@ Optional (scaffold only; no network calls unless you implement providers):
 """
 from __future__ import annotations
 
-import argparse
+import os
 import json
+import time
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional, Tuple
-import os
 import urllib.request
 import urllib.error
 
@@ -165,26 +165,49 @@ def parse_time(ts: str) -> datetime:
 
 
 def load_anomalies(path: str) -> List[Anomaly]:
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    anomalies_raw = data.get("anomalies", []) if isinstance(data, dict) else data
+    # Support both JSON array/object and JSONL (one anomaly per line) for watch mode.
+    anomalies_raw: List[Dict[str, Any]] = []
+    if path.endswith(".jsonl"):
+        with open(path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    obj = json.loads(line)
+                    if isinstance(obj, dict):
+                        anomalies_raw.append(obj)
+                except Exception:
+                    continue
+    else:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        anomalies_raw = data.get("anomalies", []) if isinstance(data, dict) else data
     out: List[Anomaly] = []
     for a in anomalies_raw:
         try:
-            out.append(
-                Anomaly(
-                    metric=a["metric"],
-                    device=a["device"],
-                    time=parse_time(a["time"]) if isinstance(a.get("time"), str) else a.get("time"),
-                    severity=a.get("severity", "minor"),
-                    reason=a.get("reason", ""),
-                    value=float(a.get("value", 0.0)),
-                    baseline_mean=float(a.get("baseline_mean", 0.0)),
-                    baseline_std=float(a.get("baseline_std", 0.0)),
-                    zscore=float(a.get("zscore", 0.0)),
-                    context=a.get("context", {}) or {},
-                )
-            )
+            raw_time = a.get("time")
+            if isinstance(raw_time, str):
+                try:
+                    parsed_time = parse_time(raw_time)
+                except Exception:
+                    parsed_time = datetime.now(timezone.utc)
+            elif isinstance(raw_time, datetime):
+                parsed_time = raw_time
+            else:
+                parsed_time = datetime.now(timezone.utc)
+            out.append(Anomaly(
+                metric=a["metric"],
+                device=a["device"],
+                time=parsed_time,
+                severity=a.get("severity", "minor"),
+                reason=a.get("reason", ""),
+                value=float(a.get("value", 0.0)),
+                baseline_mean=float(a.get("baseline_mean", 0.0)),
+                baseline_std=float(a.get("baseline_std", 0.0)),
+                zscore=float(a.get("zscore", 0.0)),
+                context=a.get("context", {}) or {},
+            ))
         except Exception:
             # Skip malformed anomaly entries
             continue
@@ -472,25 +495,137 @@ def incident_to_dict(incident: Incident) -> Dict[str, Any]:
 
 # ---------------- CLI ----------------
 
-def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Analyze anomalies into incidents and build LLM-ready prompts.")
-    p.add_argument("--input", default="anomalies.json", help="Path to anomalies JSON (from anomaly_detector.py)")
-    p.add_argument("--window-minutes", type=int, default=5, help="Grouping window in minutes (default: 5)")
-    p.add_argument("--output-json", default="incidents.json", help="Write incidents JSON (default: incidents.json)")
-    p.add_argument("--output-md", default="analysis.md", help="Write Markdown analysis (default: analysis.md)")
-    # LLM options
-    p.add_argument("--provider", choices=["none", "openai", "groq", "ollama"], default="none", help="LLM provider to use")
-    p.add_argument("--model", default=None, help="Model name (provider-specific). Defaults per provider if omitted.")
-    p.add_argument("--invoke-llm", action="store_true", help="Actually call the LLM provider")
-    p.add_argument("--openai-api-key", default=None, help="OpenAI API key (or env OPENAI_API_KEY)")
-    p.add_argument("--groq-api-key", default=None, help="Groq API key (or env GROQ_API_KEY)")
-    p.add_argument("--ollama-host", default=os.getenv("OLLAMA_HOST", "http://localhost:11434"), help="Ollama server host (default: http://localhost:11434)")
-    p.add_argument("--llm-out", default="llm_response.txt", help="Write LLM response to file (default: llm_response.txt)")
-    return p.parse_args()
+from types import SimpleNamespace
+
+def env_bool(name: str, default: bool=False) -> bool:
+    v = os.getenv(name)
+    if v is None:
+        return default
+    return v.lower() in {"1","true","yes","on"}
+
+def load_config():
+    return SimpleNamespace(
+        input=os.getenv("ANALYZER_INPUT","anomalies.json"),
+        window_minutes=int(os.getenv("ANALYZER_WINDOW_MINUTES","5")),
+        output_json=os.getenv("ANALYZER_OUTPUT_JSON","incidents.json"),
+        output_md=os.getenv("ANALYZER_OUTPUT_MD","analysis.md"),
+        provider=os.getenv("ANALYZER_PROVIDER","none"),
+        model=os.getenv("ANALYZER_MODEL"),
+        invoke_llm=env_bool("ANALYZER_INVOKE_LLM", False),
+        openai_api_key=os.getenv("OPENAI_API_KEY"),
+        groq_api_key=os.getenv("GROQ_API_KEY"),
+        ollama_host=os.getenv("OLLAMA_HOST","http://localhost:11434"),
+        llm_out=os.getenv("ANALYZER_LLM_OUT","llm_response.txt"),
+        watch=env_bool("ANALYZER_WATCH", False),
+        tail_interval=float(os.getenv("ANALYZER_TAIL_INTERVAL","30")),
+        llm_cooldown_seconds=int(os.getenv("ANALYZER_LLM_COOLDOWN_SECONDS","300")),
+        min_trigger_severity=os.getenv("ANALYZER_MIN_TRIGGER_SEVERITY","major")
+    )
+
+SEV_RANK = {"minor":1,"major":2,"critical":3}
+
+def watch_loop(args):
+    path = args.input
+    if not path.endswith('.jsonl'):
+        print(f"[watch] Input {path} is not .jsonl; exiting watch mode.")
+        return
+    offset = 0
+    last_llm_ts: Optional[datetime] = None
+    min_rank = SEV_RANK.get(args.min_trigger_severity,2)
+    print(f"[watch] tailing {path} interval={args.tail_interval}s min_trigger_sev={args.min_trigger_severity}")
+    while True:
+        try:
+            sz = os.path.getsize(path)
+        except OSError:
+            time.sleep(args.tail_interval)
+            continue
+        if sz < offset:  # file rotated
+            offset = 0
+        new_anomalies: List[Anomaly] = []
+        try:
+            with open(path,'r',encoding='utf-8') as f:
+                f.seek(offset)
+                for line in f:
+                    line=line.strip()
+                    if not line: continue
+                    try:
+                        obj = json.loads(line)
+                        if isinstance(obj, dict):
+                            # minimal validation
+                            if 'metric' in obj and 'device' in obj and 'time' in obj:
+                                # reuse load logic quickly
+                                new_anomalies.append(load_anomalies_from_list([obj])[0])
+                    except Exception:
+                        continue
+                offset = f.tell()
+        except Exception as e:
+            print(f"[watch] read error: {e}")
+        if new_anomalies:
+            # Group with just new anomalies for immediate context or combine recent window: reload last window_minutes from file for richness
+            # Simple: combine all anomalies loaded so far (could optimize)
+            all_anoms = load_anomalies(path)
+            incidents = group_anomalies(all_anoms[-1000:], window_minutes=args.window_minutes)  # limit history slice
+            analyzed = [analyze_incident(i) for i in incidents]
+            highest_rank = max((SEV_RANK.get(a.severity,1) for a in new_anomalies), default=1)
+            now_ts = datetime.now(timezone.utc)
+            should_llm = args.invoke_llm and args.provider != 'none' and (
+                highest_rank >= min_rank or (last_llm_ts is None) or (now_ts - last_llm_ts).total_seconds() >= args.llm_cooldown_seconds
+            )
+            if should_llm:
+                prompt = build_overall_prompt(all_anoms, analyzed)
+                model = args.model or default_model_for(args.provider)
+                try:
+                    if args.provider == 'openai':
+                        api_key = args.openai_api_key or os.getenv('OPENAI_API_KEY','')
+                        if not api_key: raise RuntimeError('Missing OpenAI API key.')
+                        output = call_openai(api_key, model, prompt)
+                    elif args.provider == 'groq':
+                        api_key = args.groq_api_key or os.getenv('GROQ_API_KEY','')
+                        if not api_key: raise RuntimeError('Missing Groq API key.')
+                        output = call_groq(api_key, model, prompt)
+                    else:
+                        output = call_ollama(args.ollama_host, model, prompt)
+                    last_llm_ts = now_ts
+                    with open(args.llm_out, 'w', encoding='utf-8') as f:
+                        f.write(output)
+                    print(f"[watch][LLM] response written ({len(output.split())} words)")
+                    print(output.splitlines()[0:40])
+                except Exception as e:
+                    print(f"[watch][LLM] failed: {e}")
+            else:
+                print(f"[watch] {len(new_anomalies)} new anomalies, no LLM trigger (rank={highest_rank})")
+        try:
+            time.sleep(args.tail_interval)
+        except KeyboardInterrupt:
+            print('[watch] stopped')
+            break
+
+def load_anomalies_from_list(lst: List[dict]) -> List[Anomaly]:
+    # helper for watch_loop to create anomalies from raw dicts
+    out: List[Anomaly] = []
+    for a in lst:
+        try:
+            raw_time = a.get('time')
+            if isinstance(raw_time, str):
+                try:
+                    parsed_time = parse_time(raw_time)
+                except Exception:
+                    parsed_time = datetime.now(timezone.utc)
+            elif isinstance(raw_time, datetime):
+                parsed_time = raw_time
+            else:
+                parsed_time = datetime.now(timezone.utc)
+            out.append(Anomaly(metric=a['metric'], device=a['device'], time=parsed_time, severity=a.get('severity','minor'), reason=a.get('reason',''), value=float(a.get('value',0.0)), baseline_mean=float(a.get('baseline_mean',0.0)), baseline_std=float(a.get('baseline_std',0.0)), zscore=float(a.get('zscore',0.0)), context=a.get('context',{}) or {}))
+        except Exception:
+            continue
+    return out
 
 
 def main():
-    args = parse_args()
+    args = load_config()
+    if args.watch:
+        watch_loop(args)
+        return
     anomalies = load_anomalies(args.input)
     if not anomalies:
         print("No anomalies to analyze.")

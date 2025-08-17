@@ -1,0 +1,21 @@
+# Minimal container for network_data_generator_v2
+FROM python:3.12-slim
+WORKDIR /app
+# Install system deps if needed (e.g., build-essential) - currently not required
+ENV PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    POETRY_VIRTUALENVS_CREATE=false \
+    POETRY_NO_INTERACTION=1
+COPY pyproject.toml poetry.lock* ./
+RUN pip install --no-cache-dir poetry && poetry install --no-root --no-ansi
+COPY . .
+# Default environment values (override via docker-compose .env)
+ENV INFLUXDB_URL=http://influxdb:8086 \
+    INFLUXDB_BUCKET=network_data \
+    GEN_ANOMALY_PROB=0.005 \
+    GEN_NOISE_LEVEL=1.0 \
+    GEN_DEVICES=3 \
+    GEN_DEVICE_PREFIX=router \
+    GEN_WRITE_MODE=sync \
+    GEN_RECREATE_BUCKET=true
+ENTRYPOINT ["python","network_data_generator_v2.py"]

@@ -17,14 +17,15 @@ Extend: Replace build_llm_prompt() or integrate an actual client.
 """
 from __future__ import annotations
 import os
-import argparse
+import time
 from dataclasses import dataclass, asdict
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import List, Dict, Any, Optional
 
 import numpy as np
 import pandas as pd
 from dotenv import load_dotenv
+from types import SimpleNamespace
 from influxdb_client.client.influxdb_client import InfluxDBClient
 from influxdb_client.rest import ApiException
 
@@ -42,11 +43,21 @@ DEFAULT_METRICS = [
 
 NIGHT_HOURS = set(list(range(0,6)) + [23])  # 11pm-5:59am considered "night" context
 
+def get_metric_unit(metric: str) -> str:
+    if metric in ("if_octets_in", "if_octets_out", "connections_active"):
+        return "count"
+    if metric in ("cpu_utilization", "packet_loss"):
+        return "%"
+    if metric == "latency_ms":
+        return "ms"
+    return "unknown"
+
 @dataclass
 class Anomaly:
     metric: str
     device: str
     time: datetime
+    unit: str
     severity: str
     reason: str
     value: float
@@ -115,6 +126,9 @@ def detect_anomalies(df: pd.DataFrame, stats: pd.DataFrame) -> List[Anomaly]:
     merged = df.merge(stats, on=["metric","device"], how="left")
     # Avoid division by zero
     merged["std"].replace({0: np.nan}, inplace=True)
+    # Optional std floor for stability
+    STD_FLOOR = float(os.getenv("DETECT_STD_FLOOR", 1e-6))
+    merged["std"] = merged["std"].clip(lower=STD_FLOOR)
     merged["zscore"] = (merged["value"] - merged["mean"]) / merged["std"]
 
     severity_rank = {"minor": 1, "major": 2, "critical": 3}
@@ -180,6 +194,7 @@ def detect_anomalies(df: pd.DataFrame, stats: pd.DataFrame) -> List[Anomaly]:
                 metric=metric,
                 device=str(row.get("device")),
                 time=ts,
+                unit=get_metric_unit(metric),
                 severity=sev,
                 reason="; ".join(reasons),
                 value=value,
@@ -226,23 +241,76 @@ def run_detection(url: str, token: str, org: str, bucket: str, start: datetime, 
     finally:
         client.close()
 
-# --------------- CLI ---------------
+def env_bool(name: str, default: bool=False) -> bool:
+    val = os.getenv(name)
+    if val is None:
+        return default
+    return val.lower() in {"1","true","yes","on"}
 
-def parse_args():
-    p = argparse.ArgumentParser(description="Detect anomalies in router metrics and build an LLM prompt.")
-    p.add_argument("--url", default=os.getenv("INFLUXDB_URL","http://localhost:8086"))
-    p.add_argument("--token", default=os.getenv("INFLUXDB_TOKEN",""))
-    p.add_argument("--org", default=os.getenv("INFLUXDB_ORG",""))
-    p.add_argument("--bucket", default=os.getenv("INFLUXDB_BUCKET","network_data"))
-    p.add_argument("--start", required=False, default=None, help="UTC start time YYYY-MM-DD HH:MM:SS (default: now-24h)")
-    p.add_argument("--end", required=False, default=None, help="UTC end time YYYY-MM-DD HH:MM:SS (default: now)")
-    p.add_argument("--metrics", nargs="*", default=DEFAULT_METRICS)
-    p.add_argument("--llm-prompt", help="Write constructed LLM prompt to file")
-    p.add_argument("--json", default="anomalies.json", help="Write JSON anomaly report to file (default: anomalies.json)")
-    return p.parse_args()
+def load_config():
+    metrics_env = os.getenv("DETECT_METRICS")
+    metrics = [m.strip() for m in metrics_env.split(",") if m.strip()] if metrics_env else DEFAULT_METRICS
+    cfg = SimpleNamespace(
+        url=os.getenv("INFLUXDB_URL","http://influxdb:8086"),
+        token=os.getenv("INFLUXDB_TOKEN",""),
+        org=os.getenv("INFLUXDB_ORG",""),
+        bucket=os.getenv("INFLUXDB_BUCKET","network_data"),
+        start=os.getenv("DETECT_START"),
+        end=os.getenv("DETECT_END"),
+        metrics=metrics,
+        llm_prompt=os.getenv("DETECT_LLM_PROMPT_OUTPUT"),
+        json=os.getenv("DETECT_JSON_OUTPUT","anomalies.json"),
+        watch=env_bool("DETECT_WATCH", False),
+        interval=int(os.getenv("DETECT_POLL_INTERVAL_SECONDS", "60")),
+        lookback_minutes=int(os.getenv("DETECT_LOOKBACK_MINUTES","60")),
+        jsonl=os.getenv("DETECT_JSONL_OUTPUT"),
+    )
+    return cfg
+
+def watch_loop(args):
+    """Simple polling watchdog: each interval query last lookback window, detect anomalies, emit only new ones."""
+    last_processed: Optional[datetime] = None
+    print(f"[watch] interval={args.interval}s lookback={args.lookback_minutes}m metrics={len(args.metrics)}")
+    if args.jsonl:
+        print(f"[watch] streaming anomalies to {args.jsonl}")
+    while True:
+        loop_end = datetime.now(timezone.utc)
+        loop_start = loop_end - timedelta(minutes=args.lookback_minutes)
+        try:
+            report = run_detection(args.url, args.token, args.org, args.bucket, loop_start, loop_end, args.metrics)
+        except Exception as e:  # broad catch for POC resilience
+            print(f"[watch] error: {e}")
+            try:
+                time.sleep(args.interval)
+            except KeyboardInterrupt:
+                print("[watch] stopped")
+                break
+            continue
+        # Filter new anomalies
+        new_anoms = [a for a in report.anomalies if (last_processed is None or a.time > last_processed)]
+        if new_anoms:
+            last_processed = max(a.time for a in new_anoms)
+            print(f"[watch] {len(new_anoms)} new anomalies (latest={last_processed.isoformat()})")
+            for a in new_anoms:
+                print(f"[A] {a.time.isoformat()} {a.device} {a.metric} {a.severity} v={a.value:.2f} z={a.zscore:.2f} | {a.reason}")
+            if args.jsonl:
+                import json
+                with open(args.jsonl, "a", encoding="utf-8") as jf:
+                    for a in new_anoms:
+                        d = asdict(a)
+                        d["time"] = a.time.isoformat()
+                        jf.write(json.dumps(d) + "\n")
+        else:
+            # Advance cursor to loop_end to avoid re-processing same timeframe repeatedly
+            last_processed = loop_end
+        try:
+            time.sleep(args.interval)
+        except KeyboardInterrupt:
+            print("[watch] stopped")
+            break
 
 def main():
-    args = parse_args()
+    args = load_config()
     now = datetime.now(timezone.utc)
     # Preflight: require token and org explicitly
     if not args.token:
@@ -250,6 +318,10 @@ def main():
         return
     if not args.org:
         print("ERROR: Missing InfluxDB org. Set INFLUXDB_ORG env or pass --org.")
+        return
+    # Watch mode short-circuits batch processing
+    if args.watch:
+        watch_loop(args)
         return
     if args.end:
         end = datetime.strptime(args.end, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)

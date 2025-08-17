@@ -5,6 +5,12 @@ services:
     ports:
       - "8086:8086"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+      start_period: 5s
     environment:
       - DOCKER_INFLUXDB_INIT_MODE=setup
       - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUXDB_ADMIN_USER}
@@ -21,14 +27,111 @@ services:
   n8n:
     image: n8nio/n8n:latest
     container_name: n8n
+    user: "node"
     ports:
       - "5678:5678"
     env_file:
       - .env
+    environment:
+      - N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+      - N8N_RUNNERS_ENABLED=true
     depends_on:
       - influxdb
+      - generator
     volumes:
       - n8n-data:/home/node/.n8n
+      - ./n8n/workflows:/workflows:ro
+      - ./anomaly-data:/data:ro
+    entrypoint:
+      - /bin/sh
+      - -lc
+      - |
+        set -e
+        echo 'Checking for existing non-archived workflow: Generator Starter'
+        n8n export:workflow --all --pretty > /tmp/_wf.json 2>/dev/null || true
+        node -e '
+          const fs = require("fs");
+          try {
+            const txt = fs.readFileSync("/tmp/_wf.json", "utf8");
+            const arr = JSON.parse(txt || "[]");
+            const exists = Array.isArray(arr) && arr.some(w => w && w.name === "Generator Starter" && !w.isArchived);
+            if (exists) process.exit(0); else process.exit(1);
+          } catch (_) { process.exit(1); }
+        ' && echo 'Workflow exists; skipping import.' || (echo 'Importing n8n workflow (first-time) ...' && n8n import:workflow --input /workflows/generator_workflow.json || true)
+        exec n8n start
+    restart: unless-stopped
+  generator:
+    build:
+      context: .
+      dockerfile: Dockerfile.generator
+    container_name: net-data-generator
+    depends_on:
+      influxdb:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - INFLUXDB_URL=http://influxdb:8086
+      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}
+      - INFLUXDB_ORG=${INFLUXDB_ORG}
+      - INFLUXDB_BUCKET=${INFLUXDB_BUCKET}
+      - GEN_ANOMALY_PROB=${GEN_ANOMALY_PROB:-0.005}
+      - GEN_NOISE_LEVEL=${GEN_NOISE_LEVEL:-1.0}
+      - GEN_DEVICES=${GEN_DEVICES:-3}
+      - GEN_DEVICE_PREFIX=${GEN_DEVICE_PREFIX:-router}
+      - GEN_WRITE_MODE=${GEN_WRITE_MODE:-sync}
+      - GEN_RECREATE_BUCKET=${GEN_RECREATE_BUCKET:-true}
+      - GEN_CONTINUOUS=${GEN_CONTINUOUS:-1}
+      - GEN_INTERVAL_SECONDS=${GEN_INTERVAL_SECONDS:-10}
+      - GEN_START=${GEN_START}
+      - GEN_END=${GEN_END}
+      - GEN_SEED=${GEN_SEED}
+    restart: on-failure
+  detector:
+    build:
+      context: .
+      dockerfile: Dockerfile.detector
+    container_name: net-anomaly-detector
+    depends_on:
+      influxdb:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - INFLUXDB_URL=http://influxdb:8086
+      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}
+      - INFLUXDB_ORG=${INFLUXDB_ORG}
+      - INFLUXDB_BUCKET=${INFLUXDB_BUCKET}
+      - DETECT_POLL_INTERVAL_SECONDS=${DETECT_POLL_INTERVAL_SECONDS:-60}
+      - DETECT_LOOKBACK_MINUTES=${DETECT_LOOKBACK_MINUTES:-60}
+      - DETECT_STD_FLOOR=${DETECT_STD_FLOOR:-0.0001}
+      - DETECT_WATCH=1
+      - DETECT_JSONL_OUTPUT=/data/anomalies.jsonl
+    restart: unless-stopped
+    volumes:
+      - ./anomaly-data:/data
+  # analyzer:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.analyzer
+  #   container_name: net-llm-analyzer
+  #   depends_on:
+  #     - detector
+  #   env_file:
+  #     - .env
+  #   environment:
+  #     - ANALYZER_INPUT=/data/anomalies.jsonl
+  #     - ANALYZER_WATCH=1
+  #     - ANALYZER_TAIL_INTERVAL=${ANALYZER_TAIL_INTERVAL:-30}
+  #     - ANALYZER_WINDOW_MINUTES=${ANALYZER_WINDOW_MINUTES:-5}
+  #     - ANALYZER_PROVIDER=${ANALYZER_PROVIDER:-none}
+  #     - ANALYZER_INVOKE_LLM=${ANALYZER_INVOKE_LLM:-0}
+  #     - ANALYZER_MIN_TRIGGER_SEVERITY=${ANALYZER_MIN_TRIGGER_SEVERITY:-major}
+  #     - ANALYZER_LLM_COOLDOWN_SECONDS=${ANALYZER_LLM_COOLDOWN_SECONDS:-300}
+  #   volumes:
+  #     - anomaly-data:/data
+  #   restart: unless-stopped
 volumes:
   influxdb-data:
   n8n-data:
+  anomaly-data:
