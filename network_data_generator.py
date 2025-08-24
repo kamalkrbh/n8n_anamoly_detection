@@ -137,7 +137,7 @@ def build_points(metric: str, values: np.ndarray, ts, device: str, ip: str) -> L
             Point(metric)
             .tag("device", device)
             .tag("ip", ip)
-            .field("value", float(v))
+            .field("value", round(float(v), 2))
             .field("unit", unit)
             .time(t.to_pydatetime())
         )

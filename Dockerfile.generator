@@ -18,4 +18,4 @@ ENV INFLUXDB_URL=http://influxdb:8086 \
     GEN_DEVICE_PREFIX=router \
     GEN_WRITE_MODE=sync \
     GEN_RECREATE_BUCKET=true
-ENTRYPOINT ["python","network_data_generator_v2.py"]
+ENTRYPOINT ["python","network_data_generator.py"]

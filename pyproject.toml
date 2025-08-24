@@ -7,6 +7,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
+redis = "^5.0.4"
 influxdb-client = "*"
 numpy = "*"
 pandas = "*"

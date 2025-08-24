@@ -17,6 +17,7 @@ Extend: Replace build_llm_prompt() or integrate an actual client.
 """
 from __future__ import annotations
 import os
+import redis
 import time
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone, timedelta
@@ -124,8 +125,8 @@ def detect_anomalies(df: pd.DataFrame, stats: pd.DataFrame) -> List[Anomaly]:
     if df.empty:
         return anomalies
     merged = df.merge(stats, on=["metric","device"], how="left")
-    # Avoid division by zero
-    merged["std"].replace({0: np.nan}, inplace=True)
+    # Avoid division by zero - use modern pandas syntax to avoid FutureWarning
+    merged = merged.assign(std=merged["std"].replace({0: np.nan}))
     # Optional std floor for stability
     STD_FLOOR = float(os.getenv("DETECT_STD_FLOOR", 1e-6))
     merged["std"] = merged["std"].clip(lower=STD_FLOOR)
@@ -146,7 +147,7 @@ def detect_anomalies(df: pd.DataFrame, stats: pd.DataFrame) -> List[Anomaly]:
         if raw_val is None:
             continue
         try:
-            value = float(raw_val)
+            value = round(float(raw_val), 2)
         except (TypeError, ValueError):
             continue
         mean = row.get("mean")
@@ -198,9 +199,9 @@ def detect_anomalies(df: pd.DataFrame, stats: pd.DataFrame) -> List[Anomaly]:
                 severity=sev,
                 reason="; ".join(reasons),
                 value=value,
-                baseline_mean=0.0 if np.isnan(mean) else float(mean),
-                baseline_std=0.0 if np.isnan(std) else float(std),
-                zscore=0.0 if np.isnan(z) else float(z),
+                baseline_mean=0.0 if np.isnan(mean) else round(float(mean), 2),
+                baseline_std=0.0 if np.isnan(std) else round(float(std), 2),
+                zscore=0.0 if np.isnan(z) else round(float(z), 2),
                 context={"hour": hour}
             ))
     return anomalies
@@ -271,6 +272,19 @@ def watch_loop(args):
     """Simple polling watchdog: each interval query last lookback window, detect anomalies, emit only new ones."""
     last_processed: Optional[datetime] = None
     print(f"[watch] interval={args.interval}s lookback={args.lookback_minutes}m metrics={len(args.metrics)}")
+    redis_queue = os.getenv("REDIS_QUEUE")
+    redis_host = os.getenv("REDIS_HOST", "redis")
+    redis_port = int(os.getenv("REDIS_PORT", 6379))
+    r = None
+    print(f"[debug] REDIS_QUEUE env: {redis_queue}")
+    if redis_queue:
+        print(f"[watch] streaming anomalies to Redis queue '{redis_queue}' at {redis_host}:{redis_port}")
+        try:
+            r = redis.Redis(host=redis_host, port=redis_port, db=0)
+            r.ping()
+        except Exception as e:
+            print(f"[redis] connection error: {e}")
+            r = None
     if args.jsonl:
         print(f"[watch] streaming anomalies to {args.jsonl}")
     while True:
@@ -286,6 +300,10 @@ def watch_loop(args):
                 print("[watch] stopped")
                 break
             continue
+        # Print all detected anomalies
+        print(f"[debug] Detected {len(report.anomalies)} anomalies in this window.")
+        for a in report.anomalies:
+            print(f"[debug] Detected anomaly: {a.time.isoformat()} {a.device} {a.metric} {a.severity} v={a.value:.2f} z={a.zscore:.2f} | {a.reason}")
         # Filter new anomalies
         new_anoms = [a for a in report.anomalies if (last_processed is None or a.time > last_processed)]
         if new_anoms:
@@ -293,13 +311,22 @@ def watch_loop(args):
             print(f"[watch] {len(new_anoms)} new anomalies (latest={last_processed.isoformat()})")
             for a in new_anoms:
                 print(f"[A] {a.time.isoformat()} {a.device} {a.metric} {a.severity} v={a.value:.2f} z={a.zscore:.2f} | {a.reason}")
+            import json
             if args.jsonl:
-                import json
                 with open(args.jsonl, "a", encoding="utf-8") as jf:
                     for a in new_anoms:
                         d = asdict(a)
                         d["time"] = a.time.isoformat()
                         jf.write(json.dumps(d) + "\n")
+            if r:
+                for a in new_anoms:
+                    d = asdict(a)
+                    d["time"] = a.time.isoformat()
+                    try:
+                        res = r.lpush(redis_queue, json.dumps(d))
+                        print(f"[redis] pushed anomaly to {redis_queue} (queue size now {res}) for {d['time']} {d['device']} {d['metric']}")
+                    except Exception as e:
+                        print(f"[redis] lpush error: {e}")
         else:
             # Advance cursor to loop_end to avoid re-processing same timeframe repeatedly
             last_processed = loop_end
