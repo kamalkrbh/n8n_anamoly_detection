@@ -208,27 +208,7 @@ def detect_anomalies(df: pd.DataFrame, stats: pd.DataFrame) -> List[Anomaly]:
 
 # --------------- Reporting / LLM Prompt ---------------
 
-def summarize_anomalies(anomalies: List[Anomaly]) -> Dict[str, Any]:
-    sev_counts: Dict[str,int] = {}
-    for a in anomalies:
-        sev_counts[a.severity] = sev_counts.get(a.severity, 0) + 1
-    by_metric: Dict[str,int] = {}
-    for a in anomalies:
-        by_metric[a.metric] = by_metric.get(a.metric, 0) + 1
-    return {"severity_counts": sev_counts, "metric_counts": by_metric, "total": len(anomalies)}
 
-def build_llm_prompt(report: AnomalyReport) -> str:
-    summary = summarize_anomalies(report.anomalies)
-    lines = [
-        "You are an expert network operations analyst. Analyze the detected anomalies.",
-        f"Time window: {report.start.isoformat()} to {report.end.isoformat()} UTC",
-        f"Total anomalies: {summary['total']}; Severity breakdown: {summary['severity_counts']}",
-        "List of anomalies (metric device time severity value zscore reason):",
-    ]
-    for a in report.anomalies[:200]:  # cap to avoid huge prompts
-        lines.append(f"- {a.metric} {a.device} {a.time.isoformat()} {a.severity} value={a.value:.2f} z={a.zscore:.2f} reason={a.reason}")
-    lines.append("\nTasks: 1) Classify overall health. 2) Highlight most critical root causes. 3) Suggest likely causes. 4) Recommend remediation & prioritization. 5) Note any time-of-day anomalies (e.g., unusual night traffic).")
-    return "\n".join(lines)
 
 # --------------- Orchestration ---------------
 
@@ -371,11 +351,6 @@ def main():
     print(f"Detected {len(report.anomalies)} anomalies in window.")
     for a in report.anomalies[:20]:  # show sample
         print(f"{a.time.isoformat()} {a.device} {a.metric} {a.severity} value={a.value:.2f} z={a.zscore:.2f} -> {a.reason}")
-    prompt = build_llm_prompt(report)
-    if args.llm_prompt:
-        with open(args.llm_prompt, "w", encoding="utf-8") as f:
-            f.write(prompt)
-        print(f"LLM prompt written to {args.llm_prompt}")
     if args.json:
         import json
         # Convert dataclass anomalies ensuring datetime is ISO formatted
@@ -394,10 +369,7 @@ def main():
                 "anomalies": anomalies_payload
             }, f, indent=2)
         print(f"JSON report written to {args.json}")
-    # Print tail of prompt for user preview
-    print("\n--- LLM Prompt Preview (first 40 lines) ---")
-    for i, line in enumerate(prompt.splitlines()[:40]):
-        print(line)
+    # LLM prompt creation and preview removed; now handled in workflow.
 
 if __name__ == "__main__":
     main()

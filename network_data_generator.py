@@ -19,8 +19,8 @@ INFLUXDB_TOKEN = os.getenv("INFLUXDB_TOKEN", "your-token")
 INFLUXDB_ORG = os.getenv("INFLUXDB_ORG", "your-org")
 INFLUXDB_BUCKET = os.getenv("INFLUXDB_BUCKET", "network_data")
 
-DEFAULT_ANOMALY_PROB = float(os.getenv("GEN_ANOMALY_PROB", os.getenv("ANOMALY_PROB", 0.005)))
-DEFAULT_NOISE_LEVEL = float(os.getenv("GEN_NOISE_LEVEL", os.getenv("NOISE_LEVEL", 1.0)))
+DEFAULT_ANOMALY_PROB = float(os.getenv("GEN_ANOMALY_PROB", os.getenv("ANOMALY_PROB", 0.005)))  # Probability of injecting an anomaly at each data point
+DEFAULT_NOISE_LEVEL = float(os.getenv("GEN_NOISE_LEVEL", os.getenv("NOISE_LEVEL", 1.0)))  # Standard deviation multiplier for random noise in metrics
 DEFAULT_NUM_DEVICES = int(os.getenv("GEN_DEVICES", os.getenv("NUM_DEVICES", 3)))
 DEFAULT_DEVICE_PREFIX = os.getenv("GEN_DEVICE_PREFIX", os.getenv("DEVICE_PREFIX", "router"))
 DEFAULT_WRITE_MODE = os.getenv("GEN_WRITE_MODE", os.getenv("WRITE_MODE", "sync"))

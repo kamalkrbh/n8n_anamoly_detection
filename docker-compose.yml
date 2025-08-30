@@ -102,7 +102,6 @@ services:
     volumes:
       - ./anomaly-data:/data
 
-
 volumes:
   influxdb-data:
   n8n-data:
