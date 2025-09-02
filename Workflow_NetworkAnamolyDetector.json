@@ -1,0 +1,194 @@
+{
+  "name": "Generator and Detector Starter",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a senior network operations analyst. An anomaly has been detected in the network, which has following data:\n\n- Device: {{ $json.propertyName.device }}\n- Metric: {{ $json.propertyName.metric }}\n- Time: {{ $json.propertyName.time }}\n- Unit: {{ $json.propertyName.unit }}\n- Severity: {{ $json.propertyName.severity }}\n- Value: {{ $json.propertyName.value }}\n- Baseline Mean: {{ $json.propertyName.baseline_mean }}\n- Baseline Std: {{ $json.propertyName.baseline_std }}\n- Z-Score: {{ $json.propertyName.zscore }}\n- Reason: {{ $json.propertyName.reason }}\n- Context: {{ $json.propertyName.context.hour ? 'Hour: ' + $json.propertyName.context.hour : '' }}\n\nStart the response with the title of anamoly and important metrics in the title from data which gives user a crisp and quick understanding about anamoly, then mention the complete anamoly data in form of key-value.\nThen please answer each of the following in 2-3 short bullet points based on the metric data. Keep your entire response under 20 lines:\n1. What does this anomaly mean and why might it have happened?\n2. Likely root causes (bullets).\n3. Concrete steps to resolve or mitigate (bullets).\n4. Additional data to collect if needed (bullets).",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        704,
+        -128
+      ],
+      "id": "eb3b5bcd-fdfd-4a0e-9660-a4eb6439fd83",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        704,
+        144
+      ],
+      "id": "36a94199-1a1c-41e3-9833-d21a8565ef00",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "EU0TGGZ5FpkSCKG2",
+          "name": "Groq account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "pop",
+        "list": "anomaly_queue",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        112,
+        -128
+      ],
+      "id": "6a75ef13-1ed0-45d6-861c-26b1e57081e6",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "ssXPO7DFZKwaPTRV",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "if ($json.propertyName && Object.keys($json.propertyName).length > 0) {\n  return [{ json: $json }];\n} else {\n  return [];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        400,
+        -128
+      ],
+      "id": "4ed75273-7680-48fc-a8dc-7f80efaeea99",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 5
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -128,
+        -128
+      ],
+      "id": "74d5a0ad-42a3-4a80-91ca-e6f60461ecca",
+      "name": "Schedule Trigger",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "authentication": "webhook",
+        "content": "={{ $json.text.substring(0, 1999) }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        1088,
+        -128
+      ],
+      "id": "8d0ba511-8535-4d3b-b396-75b72ef24288",
+      "name": "Discord",
+      "webhookId": "2c7ca4fd-83b8-4e73-a1d4-e7001420db40",
+      "credentials": {
+        "discordWebhookApi": {
+          "id": "QL7ASYGZPHUlYg7t",
+          "name": "Discord Webhook account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "AI Node (LLM)": {
+      "main": [
+        [
+          {
+            "node": "Create a channel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "79b470cd-6b4d-4c29-8983-0200fc4ff551",
+  "meta": {
+    "instanceId": "a41d9bf992c9eaa4b681411de07f0d6c3b4c53c2bb4615f769fe23becea25f4a",
+    "templateCredsSetupCompleted": true
+  },
+  "id": "9e7d8a2c-4dc1-4c3a-9a3a-9f3f8a3e8a2e",
+  "tags": []
+}
