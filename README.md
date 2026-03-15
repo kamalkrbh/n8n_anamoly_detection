@@ -1,4 +1,4 @@
-[![Watch the video](https://img.youtube.com/vi/mmu0OuDjcTI/0.jpg)](https://youtu.be/mmu0OuDjcTI)
+[![Watch the video](https://img.youtube.com/vi/mmu0OuDjcTI/maxresdefault.jpg)](https://youtu.be/mmu0OuDjcTI)
 
 Watch the short demo video to see how this project detects and routes anomalies in time-series network metrics. The demo walks through the architecture, shows how to run the included Docker Compose services (data generator, InfluxDB, anomaly detector, Redis queue, and n8n workflows), and explains the LLM summarization and alerting integrations (QuickChart, Discord/Slack).
 
