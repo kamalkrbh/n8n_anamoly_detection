@@ -1,3 +1,5 @@
+[![Watch the video](https://img.youtube.com/vi/mmu0OuDjcTI/0.jpg)](https://youtu.be/mmu0OuDjcTI)
+
 ## Project Workflow (Mermaid Diagram)
 
 ```mermaid
